@@ -2972,6 +2972,7 @@ GameObject:
   - component: {fileID: 912301817}
   - component: {fileID: 912301819}
   - component: {fileID: 912301818}
+  - component: {fileID: 912301820}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3223,7 +3224,7 @@ MonoBehaviour:
     m_ActionName: PlayerAction/Menu[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 912301820}
         m_TargetAssemblyTypeName: DashFunction, Assembly-CSharp
         m_MethodName: OnDash
         m_Mode: 0
@@ -3405,6 +3406,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4dcd8f2dc477f5e4aa277ee503048ee8, type: 3}
   footstepTHreshold: 0.3
   footstepRate: 0.5
+--- !u!114 &912301820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912301808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f004b04cb4cc8dc4baf08da2e6d0a40a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashSpeed: 100
+  DashDuration: 0.15
+  DashCost: 20
 --- !u!1001 &923610041
 PrefabInstance:
   m_ObjectHideFlags: 0
