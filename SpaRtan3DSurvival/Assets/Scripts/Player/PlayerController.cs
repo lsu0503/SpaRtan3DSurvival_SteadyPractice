@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public bool canLook = true;
 
     public Action inventory;
+    public Action exitMenu;
 
     private Rigidbody rigid;
 
@@ -113,14 +114,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnInventory(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started)
+            if(context.phase == InputActionPhase.Started)
         {
             inventory?.Invoke();
             ToggleCursor();
         }
     }
 
-    private void ToggleCursor()
+    public void ToggleCursor()
     {
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
