@@ -183,7 +183,7 @@ public class NPC : MonoBehaviour, IDamageable
     private bool isPlayerIsFieldView()
     {
         Vector3 directionToPlayer = CharacterManager.Instance.Player.transform.position - transform.position;
-        float angle = Vector3.Angle(transform.position, directionToPlayer);
+        float angle = Vector3.Angle(transform.forward, directionToPlayer);
         return angle < (fieldOfView * 0.5f);
     }
 
