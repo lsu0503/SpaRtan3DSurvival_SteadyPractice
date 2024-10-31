@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ public class CampFIre : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("DealDamage", 0, damageRate);
+        //InvokeRepeating("DealDamage", 0, damageRate);
+        StartCoroutine(RepeatInvoke());  // Q2 - 개선 문제 추가 내용
     }
 
     void DealDamage()
@@ -35,6 +37,18 @@ public class CampFIre : MonoBehaviour
         if(other.TryGetComponent(out IDamageable damageable))
         {
             things.Remove(damageable);
+        }
+    }
+
+    private IEnumerator RepeatInvoke() // Q2 - 개선 문제 추가 내용
+    {
+        WaitForSeconds timeTerm = new WaitForSeconds(damageRate);
+
+        while (true)
+        {
+            DealDamage();
+
+            yield return timeTerm;
         }
     }
 }
