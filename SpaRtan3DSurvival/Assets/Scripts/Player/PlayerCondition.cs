@@ -12,6 +12,7 @@ public class PlayerCondition : MonoBehaviour, IDamageable
     Condition health { get { return uiCondition.health; } }
     Condition hunger { get { return uiCondition.hunger; } }
     Condition stamina { get { return uiCondition.stamina; } }
+    Condition dash { get { return uiCondition.dash; } }  // Q2 - 확장문제 추가 내용
 
     public float noHungerHealthDecay;
 
@@ -31,6 +32,8 @@ public class PlayerCondition : MonoBehaviour, IDamageable
         {
             Die();
         }
+
+        dash.Add(dash.passiveValue * Time.deltaTime);
     }
 
     public void Heal(float amount)
@@ -59,6 +62,14 @@ public class PlayerCondition : MonoBehaviour, IDamageable
         if (stamina.curValue < amount) return false;
 
         stamina.Substract(amount);
+        return true;
+    }
+
+    public bool UseDash(float amount) // Q2 - 확장문제 추가 내용
+    {
+        if(dash.curValue < amount) return false;
+
+        dash.Substract(amount);
         return true;
     }
 }

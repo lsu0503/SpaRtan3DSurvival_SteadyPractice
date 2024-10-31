@@ -44,7 +44,7 @@ public class DashFunction : MonoBehaviour
     {
         if(context.phase == InputActionPhase.Started)
         {
-            if (condition.UseStamina(DashCost))
+            if (condition.UseDash(DashCost))  // Q2 - 확장문제 수정 내용 [UseStamina → UseDash]
             {
                 isDash = true;
                 DashTriggeredTime = Time.time;
