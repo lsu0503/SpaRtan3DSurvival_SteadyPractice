@@ -8,18 +8,10 @@ public class ExitMenu : MonoBehaviour
 
     private void Start()
     {
-        menuCanvas.SetActive(false);
         controller = CharacterManager.Instance.player.controller;
 
         controller.exitMenu += SetMenuOnOff;
-    }
-
-    public void OnMenu(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Started)
-        {
-            SetMenuOnOff();
-        }
+        menuCanvas.SetActive(false);
     }
 
     public void SetMenuOnOff()

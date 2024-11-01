@@ -127,4 +127,12 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+
+    public void OnMenu(InputAction.CallbackContext context) // Q3 확장 문제 추가 사항
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            exitMenu?.Invoke();
+        }
+    }
 }
