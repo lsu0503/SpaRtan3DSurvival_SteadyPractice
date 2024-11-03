@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +13,10 @@ public class Interaction : MonoBehaviour
     public GameObject curInteractGameObject;
     private IInteractable curInteracable;
 
-    public TextMeshProUGUI promptText;
+    //public TextMeshProUGUI promptText; // Q3 개선 문제 수정 사항
     private Camera camera;
+
+    public event Action onInteractionEvent;
 
     private void Start()
     {
@@ -33,36 +36,53 @@ public class Interaction : MonoBehaviour
             {
                 if (hit.collider.gameObject != curInteractGameObject)
                 {
+                    // Q3 개선 문제 추가 사항
+                    if (curInteracable != null)
+                        curInteracable.OutAim();
+
                     curInteractGameObject = hit.collider.gameObject;
                     curInteracable = hit.collider.GetComponent<IInteractable>();
+                    curInteracable.OnAimed();
 
-                    SetPrompText();
+                    // Q3 개선 문제 수정 사항
+                    //SetPrompText();
                 }
             }
 
             else
             {
+                if(curInteracable != null)
+                    curInteracable.OutAim();
+
+                GameManager.Instance.OffPrompt();
                 curInteractGameObject = null;
                 curInteracable = null;
-                promptText.gameObject.SetActive(false);
+
+
+                // Q3 개선 문제 수정 사항
+                //promptText.gameObject.SetActive(false);
             }
         }
     }
 
-    private void SetPrompText()
-    {
-        promptText.gameObject.SetActive(true);
-        promptText.text = curInteracable.GetInteractPrompt();
-    }
+    // Q3 개선 문제 수정 사항
+    //private void SetPrompText()
+    //{
+    //    promptText.gameObject.SetActive(true);
+    //    promptText.text = curInteracable.GetInteractPrompt();
+    //}
 
     public void OnInteractInput(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Started && curInteracable != null)
         {
-            curInteracable.OnInteract();
+            onInteractionEvent?.Invoke();
             curInteractGameObject = null;
             curInteracable = null;
-            promptText.gameObject.SetActive(false);
+
+            // Q3 개선 문제 수정 사항
+            //curInteracable.OnInteract();
+            //promptText.gameObject.SetActive(false);
         }
     }
 }
