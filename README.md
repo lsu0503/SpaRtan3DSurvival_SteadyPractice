@@ -115,12 +115,13 @@
 
 ### 확장 문제 [기능이 서로 다른 Commit으로 작성되었습니다.]
 **※ 해당 항목의 커밋이 Q2로 잘못 기입되어있습니다.**
-* UI를 별도의 프리팹으로 만들고 게임 시작 시 초기화 세팅 기능으로 만들어 보세요.
+* **UI를 별도의 프리팹으로 만들고 게임 시작 시 초기화 세팅 기능으로 만들어 보세요.**
   * Commit id: e28a4e5ef9040bdeba9e9cf618bdd3bb4648daaf
   * 수정하지 않아도 자동으로 할당되는 UI들을 제외하고는 각자 UI에 대한 정보를 가지고 있어야 하는 위치에 할당하는 코드를 추가하였습니다.
     * PromptText 클래스를 추가하여, Interaction에 추가 할당되도록 구성하였습니다.
     * Q1 확장문제에서 추가한 ExitMenu에 할당되었던 메뉴 버튼 입력 함수를 PlayerControll으로 이동하였습니다.
-* ScriptableObject에서 프리팹을 사용하지 않고 게임 오브젝트를 생성해보세요. (새로운 ID가 필요)
+
+* **ScriptableObject에서 프리팹을 사용하지 않고 게임 오브젝트를 생성해보세요. (새로운 ID가 필요)**
   * Commit id: 9af5805e4367ad80e9ba361246e8117da529aaf4
   * ItemData에서 2종류의 프리팹(equipPrafab, itemPrefab)을 제거하고, key로 사용될 id 변수를 추가하였습니다.
   * BaseDictionary와 DictionaryConstructor를 제너릭으로 정의하고, 이를 상속받는 방식으로 ItemDictionary와 EquipmentDictionary를 작성하였습니다.
