@@ -13,7 +13,7 @@ public class Resource: MonoBehaviour
             if (capacity <= 0) break;
             capacity--;
 
-            Instantiate(itemToGive.dropPrefab, hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up));
+            Instantiate(GameManager.Instance.itemDict.GetDict(itemToGive.Id), hitPoint + Vector3.up, Quaternion.LookRotation(hitNormal, Vector3.up));
         }
     }
 }

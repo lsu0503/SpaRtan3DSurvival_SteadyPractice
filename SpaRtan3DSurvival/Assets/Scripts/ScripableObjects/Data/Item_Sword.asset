@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380d3bdc6d37adc48b2d477ea7eea8ae, type: 3}
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
+  id: 20
   displayName: "\uCE7C"
   description: "\uCC3D\uC774 \uB113\uC740, \uC774\uAC00 \uB098\uAC04 \uB300\uAC80.
     \uACF5\uACA9\uC6A9\uC774\uAE34 \uD558\uB2E4."
@@ -21,4 +22,3 @@ MonoBehaviour:
   canStack: 0
   maxStackAmount: 0
   consumable: []
-  equipPrefab: {fileID: 4752851906533076481, guid: 2da4106f859bfac42962d20880c8e9b5, type: 3}

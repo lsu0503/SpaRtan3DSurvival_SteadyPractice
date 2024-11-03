@@ -201,7 +201,7 @@ public class NPC : MonoBehaviour, IDamageable
     private void Die()
     {
         foreach (ItemData dropItem in dropOnDeath)
-            Instantiate(dropItem.dropPrefab, transform.position + (Vector3.up * 2), Quaternion.identity);
+            Instantiate(GameManager.Instance.itemDict.GetDict(dropItem.Id), transform.position + (Vector3.up * 2), Quaternion.identity);
 
         Destroy(gameObject);
     }

@@ -26,11 +26,12 @@ public class ItemDataConsumable
 public class ItemData : ScriptableObject
 {
     [Header("Info")]
+    public int id; // Q3 확장 문제 - 2 추가 항목
     public string displayName;
     public string description;
     public ITEMTYPE type;
     public Sprite icon;
-    public GameObject dropPrefab;
+    //public GameObject dropPrefab; // Q3 확장 문제 - 2 수정 항목
 
     [Header("Stacking")]
     public bool canStack;
@@ -39,6 +40,9 @@ public class ItemData : ScriptableObject
     [Header("Consumable")]
     public ItemDataConsumable[] consumable;
 
-    [Header("Equip")]
-    public GameObject equipPrefab;
+    // Q3 확장 문제 - 2 수정 항목
+    //[Header("Equip")]
+    //public GameObject equipPrefab;
+
+    public int Id { get { return id; } } // Q3 확장 문제 - 2 추가 항목
 }

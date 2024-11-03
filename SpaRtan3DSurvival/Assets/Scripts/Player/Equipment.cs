@@ -18,7 +18,7 @@ public class Equipment : MonoBehaviour
     public void EquipNew(ItemData data)
     {
         Unequip();
-        curEquip = Instantiate(data.equipPrefab, equipParant).GetComponent<Equip>();
+        curEquip = Instantiate(GameManager.Instance.equipDict.GetDict(data.id), equipParant).GetComponent<Equip>();
     }
 
     public void Unequip()

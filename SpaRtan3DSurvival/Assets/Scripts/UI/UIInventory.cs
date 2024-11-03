@@ -134,7 +134,7 @@ public class UIInventory : MonoBehaviour
 
     private void ThrowItem(ItemData data)
     {
-        Instantiate(data.dropPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * UnityEngine.Random.value * 360));
+        Instantiate(GameManager.Instance.itemDict.GetDict(data.Id), dropPosition.position, Quaternion.Euler(Vector3.one * UnityEngine.Random.value * 360));
     }
 
     public void SelectItem(int index)

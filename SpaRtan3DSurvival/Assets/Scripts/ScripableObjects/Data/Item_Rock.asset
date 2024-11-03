@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380d3bdc6d37adc48b2d477ea7eea8ae, type: 3}
   m_Name: Item_Rock
   m_EditorClassIdentifier: 
+  id: 30
   displayName: "\uB3CC"
   description: "\uADF8\uB0E5 \uB3CC."
   type: 0
